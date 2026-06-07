@@ -19,4 +19,18 @@ def listar_documentos():
             print("-", arquivo)
 
 
+def adicionar_documento():
+    nome = input("Digite o nome do documento: ")
+
+    caminho = os.path.join(PASTA_DOCUMENTOS, nome)
+
+    with open(caminho, "w", encoding="utf-8") as arquivo:
+        arquivo.write("Documento criado pelo sistema.")
+
+    print("Documento criado com sucesso.")
+
+
 listar_documentos()
+adicionar_documento()
+
+
