@@ -30,7 +30,28 @@ def adicionar_documento():
     print("Documento criado com sucesso.")
 
 
-listar_documentos()
-adicionar_documento()
+def menu():
+    while True:
+        print("\n📚 SISTEMA DE BIBLIOTECA DIGITAL")
+        print("1 - Listar documentos")
+        print("2 - Adicionar documento")
+        print("0 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            listar_documentos()
+
+        elif opcao == "2":
+            adicionar_documento()
+
+        elif opcao == "0":
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção inválida")
+
+menu()
 
 
