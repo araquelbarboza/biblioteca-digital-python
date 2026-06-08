@@ -60,12 +60,28 @@ def remover_documento():
         print("Arquivo não encontrado.")
 
 
+def renomear_documento():
+    tipo = input("Tipo (livros/artigos/teses): ")
+    nome_antigo = input("Nome atual do documento: ")
+    novo_nome = input("Novo nome do documento: ")
+
+    caminho_antigo = os.path.join(PASTA_DOCUMENTOS, tipo, nome_antigo)
+    caminho_novo = os.path.join(PASTA_DOCUMENTOS, tipo, novo_nome)
+
+    if os.path.exists(caminho_antigo):
+        os.rename(caminho_antigo, caminho_novo)
+        print("Documento renomeado com sucesso.")
+    else:
+        print("Arquivo não encontrado.")
+
+
 def menu():
     while True:
         print("\n📚 SISTEMA DE BIBLIOTECA DIGITAL")
         print("1 - Listar documentos")
         print("2 - Adicionar documento")
         print("3 - Remover documento")
+        print("4 - Renomear documento")
         print("0 - Sair")
 
         opcao = input("Escolha uma opção: ")
@@ -78,6 +94,9 @@ def menu():
 
         elif opcao == "3":
             remover_documento()
+
+        elif opcao == "4":
+            renomear_documento()
 
         elif opcao == "0":
             break
