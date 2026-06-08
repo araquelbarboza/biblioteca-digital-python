@@ -33,16 +33,19 @@ def listar_documentos():
 def adicionar_documento():
     tipo = input("Tipo (livros/artigos/teses): ")
     nome = input("Nome do documento: ")
+    ano = input("Ano de publicação: ")
 
     pasta_tipo = os.path.join(PASTA_DOCUMENTOS, tipo)
 
     if not os.path.exists(pasta_tipo):
         os.makedirs(pasta_tipo)
 
-    caminho = os.path.join(pasta_tipo, nome)
+    nome_arquivo = f"{ano}_{nome}"
+
+    caminho = os.path.join(pasta_tipo, nome_arquivo)
 
     with open(caminho, "w", encoding="utf-8") as arquivo:
-        arquivo.write("Documento criado pelo sistema.")
+        arquivo.write(f"Documento criado pelo sistema. Ano: {ano}")
 
     print("Documento criado com sucesso.")
 
